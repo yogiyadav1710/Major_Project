@@ -131,6 +131,20 @@ route.post("/artistReg",async (req, res)=> {
     .catch((error)=>console.log(error));
 });
 
+// Check user Login
+route.post("/usersignin",async (req, res)=> {
+    const emailid=req.body.email
+    const pass=req.body.password
+    const user = await USERS.findOne({where:{email:emailid}})
+    if(user.Email===emailid && user.Password===pass)
+    {
+        res.send("Email password matches..!")
+    }
+    else{
+        res.send("No matches found..!")
+    }
+  });
+
 
 route.get("/:name", (req, res)=> {
     USERS.findAll({where:{name:req.params.name}}).then((data)=>{res.send(data)})

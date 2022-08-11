@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {useState} from 'react'
 import axios from 'react'
-function Login() {
+function UserLogin() {
   
 
     const [email,setEmail]=useState('')
@@ -14,9 +14,9 @@ function Login() {
       setPassword(e.target.value)
     }
 
-    const handleApi=()=>{
+    const handleSubmit=()=>{
       console.log(email,password)
-      axios.get('http://localhost:8081/test/',{
+      axios.post('http://localhost:8081/test/',{
         // fname:fname,
         // lname:lname,
         email:email,
@@ -30,8 +30,6 @@ function Login() {
       .catch(error=>{
         console.log(error)
       })
-
-      
     }
     return (
       <form>
@@ -74,7 +72,7 @@ function Login() {
 
         <div className="d-grid">
           {/* <button type="submit" className="btn btn-primary" onClick={handleApi}> */}
-          <button type="submit" className="btn btn-primary" >
+          <button type="submit" className="btn btn-primary" onClick={handleSubmit} >
             Submit
           </button>
         </div>
@@ -86,4 +84,4 @@ function Login() {
   
 }
 
-export default Login;
+export default UserLogin;

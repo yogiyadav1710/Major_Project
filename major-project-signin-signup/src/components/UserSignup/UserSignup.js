@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react'
 import axios from 'axios'
 import '../index.css'
 import './artist.css'
-function Signup() {
+function UserSignup() {
 
 const [fname,setFname]=useState('')
 const [lname,setLname]=useState('')
@@ -200,4 +200,4 @@ const [confirmpassword,setConfirmPassword]=useState('')
 
 }
 
-export default Signup;
+export default UserSignup;
